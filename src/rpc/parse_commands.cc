@@ -16,14 +16,14 @@ CommandMap commands;
 RpcManager rpc;
 ExecFile   execFile;
 
-struct command_map_is_space : std::unary_function<char, bool> {
-  bool operator()(char c) const {
+struct command_map_is_space {
+  constexpr bool operator()(char c) const {
     return c == ' ' || c == '\t';
   }
 };
 
-struct command_map_is_newline : std::unary_function<char, bool> {
-  bool operator()(char c) const {
+struct command_map_is_newline {
+  constexpr bool operator()(char c) const {
     return c == '\n' || c == '\0' || c == ';';
   }
 };
